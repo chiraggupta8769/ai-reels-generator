@@ -12,14 +12,22 @@ templates = [
     "Zindagi mein haar tab hoti hai, jab tum khud haar maante ho.",
     "Ek waqt tha jab log usse pehchante nahi the, aaj log usse milne ka intezaar karte hain."
 ]
+import random
+from edge_voice import text_to_speech
+
+scripts = [
+    "Life gives you 100 reasons to cry, show life you have 1000 reasons to smile.",
+    "You were born to be real, not to be perfect.",
+    "In the middle of difficulty lies opportunity.",
+    "Sometimes the smallest step in the right direction ends up being the biggest step of your life.",
+    "The comeback is always stronger than the setback."
+]
+
 def generate():
-    script = random.choice(templates)
-    filename = "output.mp3"
-    text_to_speech(script, filename)
-    return {
-        "script": script,
-        "audio_file": filename
-    }
+    script = random.choice(scripts)
+    output_file = "output.mp3"
+    text_to_speech(script, output_file)
+    return {"script": script, "audio_file": output_file}
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=7860)

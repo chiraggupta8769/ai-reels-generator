@@ -18,10 +18,10 @@ jobs:
         with:
           python-version: "3.10"  # ✅ Stable version available
 
-      - name: 📦 Install dependencies
-        run: |
-          pip install requests
-          sudo apt update && sudo apt install -y ffmpeg
+     - name: 📦 Install dependencies
+  run: |
+    pip install -r requirements.txt
+    sudo apt update && sudo apt install -y ffmpeg
 
       - name: ⚙️ Run reel generation
         run: python main.py
