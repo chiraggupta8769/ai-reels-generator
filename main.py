@@ -1,13 +1,17 @@
 import random
 from app import generate
-from video_merge import download_video, merge_audio_video
 
-queries = ["emotional man", "crying woman", "sad street", "lonely person", "dark sky"]
+queries = [
+    "Power of believing in yourself",
+    "From failure to success",
+    "Never give up on your dreams",
+    "Small steps make big changes",
+    "Your time will come"
+]
+
+# Pick a random topic
 query = random.choice(queries)
+print(f"🎯 Selected query: {query}")
 
-data = generate()
-script = data["script"]
-audio_file = data["audio_file"]
-
-video_file = download_video(query=query)
-merge_audio_video(video_file, audio_file)
+# Generate the reel with that topic
+generate(query)
