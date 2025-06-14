@@ -1,0 +1,27 @@
+name: Auto Reels Generator
+
+on:
+  schedule:
+    - cron: "30 4 * * *"  # ⏰ runs every day at 10:00 AM IST
+  workflow_dispatch:      # 🚀 allows manual trigger from GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install requests
+          sudo apt update && sudo apt install -y ffmpeg
+
+      - name: ⚙️ Run reel generation
+        run: python main.py
