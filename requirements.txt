@@ -1,2 +1,3 @@
-Flask
-edge-tts
+flask
+requests
+edge_tts
